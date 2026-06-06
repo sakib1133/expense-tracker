@@ -1,0 +1,111 @@
+import { deleteExpense } from '../api/expenses';
+
+export default function ExpenseTable({ expenses, onEdit, onDelete }) {
+  const handleDelete = async (id) => {
+    if (window.confirm('Are you sure you want to delete this expense?')) {
+      try {
+        await deleteExpense(id);
+        onDelete();
+      } catch (error) {
+        console.error('Error deleting expense:', error);
+      }
+    }
+  };
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('en-IN', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'Asia/Kolkata'
+    });
+  };
+
+  const getBadgeStyle = (category) => {
+    switch (category) {
+      case 'Food':
+        return { backgroundColor: '#f1f5f9', color: '#334155', border: '1px solid #cbd5e1' };
+      case 'Transport':
+        return { backgroundColor: '#f1f5f9', color: '#475569', border: '1px solid #e2e8f0' };
+      case 'Bills':
+        return { backgroundColor: '#f1f5f9', color: '#64748b', border: '1px solid #e2e8f0' };
+      case 'Entertainment':
+        return { backgroundColor: '#f1f5f9', color: '#64748b', border: '1px solid #e2e8f0' };
+      case 'Other':
+        return { backgroundColor: '#f1f5f9', color: '#94a3b8', border: '1px solid #e2e8f0' };
+      default:
+        return { backgroundColor: '#f1f5f9', color: '#334155', border: '1px solid #cbd5e1' };
+    }
+  };
+
+  if (expenses.length === 0) {
+    return (
+      <div className="shadow p-6 text-center border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px', color: 'var(--text-secondary)' }}>
+        No expenses found
+      </div>
+    );
+  }
+
+  return (
+    <div className="shadow overflow-hidden border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px' }}>
+      <table className="w-full">
+        <thead style={{ borderBottom: '1px solid var(--border)' }}>
+          <tr>
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)', fontSize: '11px', letterSpacing: '0.8px' }}>
+              Date
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)', fontSize: '11px', letterSpacing: '0.8px' }}>
+              Category
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)', fontSize: '11px', letterSpacing: '0.8px' }}>
+              Note
+            </th>
+            <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)', fontSize: '11px', letterSpacing: '0.8px' }}>
+              Amount
+            </th>
+            <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)', fontSize: '11px', letterSpacing: '0.8px' }}>
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y" style={{ borderColor: '#f1f5f9' }}>
+          {expenses.map((expense) => (
+            <tr key={expense.id} style={{ transition: 'background-color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+              <td className="px-6 py-4 whitespace-nowrap text-sm" style={{ color: 'var(--text-secondary)' }}>
+                {formatDate(expense.date)}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap">
+                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded" style={getBadgeStyle(expense.category)}>
+                  {expense.category}
+                </span>
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm" style={{ color: 'var(--text-secondary)' }}>
+                {expense.note || '-'}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-right font-medium" style={{ color: 'var(--primary)', fontWeight: 700 }}>
+                ₹{expense.amount.toFixed(2)}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <button
+                  onClick={() => onEdit(expense)}
+                  className="mr-3"
+                  style={{ color: 'var(--primary)', fontWeight: 600 }}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(expense.id)}
+                  style={{ color: '#cbd5e1' }}
+                  onMouseEnter={(e) => e.target.style.color = '#e11d48'}
+                  onMouseLeave={(e) => e.target.style.color = '#cbd5e1'}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

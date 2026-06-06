@@ -1,0 +1,34 @@
+[
+  {
+    "id": "e7c7dd8d-44e7-4fc4-9228-851567ab91ef",
+    "amount": 100,
+    "category": "Food",
+    "date": "2026-06-06",
+    "note": "",
+    "createdAt": "6/6/2026, 8:52:02 am"
+  },
+  {
+    "id": "a3f2906f-c21e-43ec-939f-5949a865a18e",
+    "amount": 200,
+    "category": "Transport",
+    "date": "2026-06-06",
+    "note": "",
+    "createdAt": "6/6/2026, 8:52:07 am"
+  },
+  {
+    "id": "2f7d9aa4-f661-46d1-ba71-9cd5d06121df",
+    "amount": 300,
+    "category": "Bills",
+    "date": "2026-06-06",
+    "note": "",
+    "createdAt": "6/6/2026, 8:52:16 am"
+  },
+  {
+    "id": "bbe150a2-a6f0-47e5-8c1c-b6a8ca58d3ab",
+    "amount": 400,
+    "category": "Entertainment",
+    "date": "2026-06-06",
+    "note": "",
+    "createdAt": "6/6/2026, 8:52:22 am"
+  }
+]

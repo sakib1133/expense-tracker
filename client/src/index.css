@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-input: #f8fafc;
+  --primary: #334155;
+  --secondary: #64748b;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --border-light: #cbd5e1;
+}
+
+body {
+  font-family: 'Cambria', 'Georgia', serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+* {
+  font-family: 'Cambria', 'Georgia', serif;
+}
