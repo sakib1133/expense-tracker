@@ -38,5 +38,23 @@
     "date": "2026-06-06",
     "note": "",
     "createdAt": "6/6/2026, 11:22:48 am"
+  },
+  {
+    "id": "bc274841-a59c-434e-8026-7839d0657913",
+    "userId": "9e06008d-0c26-4d4a-a664-acd96831ce20",
+    "amount": 200,
+    "category": "Transport",
+    "date": "2026-06-08",
+    "note": "sunderpur to dehradun",
+    "createdAt": "8/6/2026, 11:14:49 am"
+  },
+  {
+    "id": "8cd692ce-d1ec-45b6-81c7-fb30e6328ce1",
+    "userId": "9e06008d-0c26-4d4a-a664-acd96831ce20",
+    "amount": 500,
+    "category": "Entertainment",
+    "date": "2026-06-08",
+    "note": "movie",
+    "createdAt": "8/6/2026, 1:22:43 pm"
   }
 ]
