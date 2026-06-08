@@ -74,8 +74,8 @@ export default function ExpenseForm({ editingExpense, onSubmit, onCancel }) {
   };
 
   return (
-    <div className="shadow p-6 mb-6 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px' }}>
-      <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
+    <div className="shadow p-4 sm:p-6 mb-6 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px' }}>
+      <h2 className="text-lg sm:text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
         {editingExpense ? 'Edit Expense' : 'Add New Expense'}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -89,7 +89,7 @@ export default function ExpenseForm({ editingExpense, onSubmit, onCancel }) {
             min="0"
             value={formData.amount}
             onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-            className={`w-full px-3 py-2 border focus:outline-none ${
+            className={`w-full px-3 py-2 border focus:outline-none text-sm ${
               errors.amount ? 'border-red-500' : ''
             }`} style={{ backgroundColor: 'var(--bg-input)', borderColor: errors.amount ? '#ef4444' : 'var(--border-light)', color: 'var(--text-primary)', borderRadius: '8px' }}
           />
@@ -103,7 +103,7 @@ export default function ExpenseForm({ editingExpense, onSubmit, onCancel }) {
           <select
             value={formData.category}
             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-            className={`w-full px-3 py-2 border focus:outline-none ${
+            className={`w-full px-3 py-2 border focus:outline-none text-sm ${
               errors.category ? 'border-red-500' : ''
             }`} style={{ backgroundColor: 'var(--bg-input)', borderColor: errors.category ? '#ef4444' : 'var(--border-light)', color: 'var(--text-primary)', borderRadius: '8px' }}
           >
@@ -125,7 +125,7 @@ export default function ExpenseForm({ editingExpense, onSubmit, onCancel }) {
             type="date"
             value={formData.date}
             onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-            className={`w-full px-3 py-2 border focus:outline-none ${
+            className={`w-full px-3 py-2 border focus:outline-none text-sm ${
               errors.date ? 'border-red-500' : ''
             }`} style={{ backgroundColor: 'var(--bg-input)', borderColor: errors.date ? '#ef4444' : 'var(--border-light)', color: 'var(--text-primary)', borderRadius: '8px' }}
           />
@@ -139,7 +139,7 @@ export default function ExpenseForm({ editingExpense, onSubmit, onCancel }) {
           <textarea
             value={formData.note}
             onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-            className="w-full px-3 py-2 border focus:outline-none" style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-light)', color: 'var(--text-primary)', borderRadius: '8px' }}
+            className="w-full px-3 py-2 border focus:outline-none text-sm" style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-light)', color: 'var(--text-primary)', borderRadius: '8px' }}
             rows="2"
           />
         </div>
@@ -147,7 +147,7 @@ export default function ExpenseForm({ editingExpense, onSubmit, onCancel }) {
         <div className="flex gap-3">
           <button
             type="submit"
-            className="flex-1 text-white py-2 px-4 transition-colors" style={{ backgroundColor: 'var(--primary)', borderRadius: '10px' }}
+            className="flex-1 text-white py-2 px-4 transition-colors text-sm sm:text-base" style={{ backgroundColor: 'var(--primary)', borderRadius: '10px' }}
           >
             {editingExpense ? 'Update' : 'Add'} Expense
           </button>
@@ -155,7 +155,7 @@ export default function ExpenseForm({ editingExpense, onSubmit, onCancel }) {
             <button
               type="button"
               onClick={onCancel}
-              className="flex-1 py-2 px-4 transition-colors" style={{ backgroundColor: '#e2e8f0', color: 'var(--text-primary)', borderRadius: '10px' }}
+              className="flex-1 py-2 px-4 transition-colors text-sm sm:text-base" style={{ backgroundColor: '#e2e8f0', color: 'var(--text-primary)', borderRadius: '10px' }}
             >
               Cancel
             </button>

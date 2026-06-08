@@ -153,9 +153,9 @@ export default function Dashboard() {
     <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-main)' }}>
       <Navbar />
       
-      <div className="py-8 px-4">
+      <div className="py-4 sm:py-8 px-2 sm:px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-8" style={{ color: 'var(--text-primary)' }}>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 sm:mb-8" style={{ color: 'var(--text-primary)' }}>
             Dashboard
           </h1>
 
@@ -166,7 +166,7 @@ export default function Dashboard() {
           />
 
           {budgetAlerts.length > 0 && (
-            <div className="mb-6">
+            <div className="mb-4 sm:mb-6">
               {budgetAlerts.map((alert, index) => (
                 <BudgetAlert
                   key={index}
@@ -183,7 +183,7 @@ export default function Dashboard() {
             <ExportButton expenses={filteredExpenses} />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
             <div className="lg:col-span-2">
               <SummaryPanel expenses={filteredExpenses} />
             </div>
@@ -193,7 +193,7 @@ export default function Dashboard() {
           </div>
 
           {budgets.length > 0 && (
-            <div className="mb-6">
+            <div className="mb-4 sm:mb-6">
               <BudgetOverview
                 totalBudget={totalBudget}
                 totalSpending={totalSpending}

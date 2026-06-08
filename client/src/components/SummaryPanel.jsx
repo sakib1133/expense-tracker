@@ -30,20 +30,20 @@ export default function SummaryPanel({ expenses }) {
   const { totalThisMonth, categoryTotals, highestExpense } = calculateTotals();
 
   return (
-    <div className="shadow p-6 mb-6 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px' }}>
-      <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Summary</h2>
+    <div className="shadow p-4 sm:p-6 mb-6 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px' }}>
+      <h2 className="text-lg sm:text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Summary</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="p-4 rounded border" style={{ backgroundColor: 'var(--primary)', borderColor: 'var(--primary)' }}>
-          <p className="text-sm mb-1" style={{ color: '#cbd5e1' }}>Total This Month</p>
-          <p className="text-2xl font-bold" style={{ color: '#ffffff' }}>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+        <div className="p-3 sm:p-4 rounded border" style={{ backgroundColor: 'var(--primary)', borderColor: 'var(--primary)' }}>
+          <p className="text-xs sm:text-sm mb-1" style={{ color: '#cbd5e1' }}>Total This Month</p>
+          <p className="text-xl sm:text-2xl font-bold" style={{ color: '#ffffff' }}>
             ₹{totalThisMonth.toFixed(2)}
           </p>
         </div>
 
-        <div className="p-4 rounded border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-          <p className="text-sm mb-1" style={{ color: 'var(--text-muted)' }}>Highest Single Expense</p>
-          <p className="text-2xl font-bold" style={{ color: 'var(--primary)' }}>
+        <div className="p-3 sm:p-4 rounded border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)' }}>
+          <p className="text-xs sm:text-sm mb-1" style={{ color: 'var(--text-muted)' }}>Highest Single Expense</p>
+          <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--primary)' }}>
             {highestExpense ? `₹${highestExpense.amount.toFixed(2)}` : '₹0.00'}
           </p>
           {highestExpense && (
@@ -53,21 +53,21 @@ export default function SummaryPanel({ expenses }) {
           )}
         </div>
 
-        <div className="p-4 rounded border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-          <p className="text-sm mb-1" style={{ color: 'var(--text-muted)' }}>Total Expenses</p>
-          <p className="text-2xl font-bold" style={{ color: 'var(--primary)' }}>
+        <div className="p-3 sm:p-4 rounded border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)' }}>
+          <p className="text-xs sm:text-sm mb-1" style={{ color: 'var(--text-muted)' }}>Total Expenses</p>
+          <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--primary)' }}>
             {expenses.length}
           </p>
         </div>
       </div>
 
       <div className="mt-4">
-        <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Spending by Category</h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <h3 className="text-base sm:text-lg font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Spending by Category</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {Object.entries(categoryTotals).map(([category, total]) => (
-            <div key={category} className="p-3 rounded border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{category}</p>
-              <p className="text-lg font-semibold" style={{ color: 'var(--primary)' }}>
+            <div key={category} className="p-2 sm:p-3 rounded border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)' }}>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--text-muted)' }}>{category}</p>
+              <p className="text-sm sm:text-lg font-semibold" style={{ color: 'var(--primary)' }}>
                 ₹{total.toFixed(2)}
               </p>
             </div>

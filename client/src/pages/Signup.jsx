@@ -40,17 +40,17 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12" style={{ backgroundColor: 'var(--bg-main)' }}>
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 sm:py-12" style={{ backgroundColor: 'var(--bg-main)' }}>
       <div className="max-w-md w-full">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
             Mini Expense Tracker
           </h1>
-          <p style={{ color: 'var(--text-secondary)' }}>Create your account</p>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>Create your account</p>
         </div>
 
-        <div className="rounded-lg p-8 shadow-lg" style={{ backgroundColor: 'var(--bg-card)' }}>
-          <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="rounded-lg p-6 sm:p-8 shadow-lg" style={{ backgroundColor: 'var(--bg-card)' }}>
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             {error && (
               <div className="p-3 rounded-md text-sm" style={{ backgroundColor: '#fee2e2', color: '#dc2626' }}>
                 {error}
@@ -67,7 +67,7 @@ export default function Signup() {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 required
-                className="w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border focus:outline-none focus:ring-2 text-sm"
                 style={{
                   backgroundColor: 'var(--bg-input)',
                   borderColor: 'var(--border-color)',
@@ -87,7 +87,7 @@ export default function Signup() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border focus:outline-none focus:ring-2 text-sm"
                 style={{
                   backgroundColor: 'var(--bg-input)',
                   borderColor: 'var(--border-color)',
@@ -108,7 +108,7 @@ export default function Signup() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={8}
-                className="w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border focus:outline-none focus:ring-2 text-sm"
                 style={{
                   backgroundColor: 'var(--bg-input)',
                   borderColor: 'var(--border-color)',
@@ -132,7 +132,7 @@ export default function Signup() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 minLength={8}
-                className="w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border focus:outline-none focus:ring-2 text-sm"
                 style={{
                   backgroundColor: 'var(--bg-input)',
                   borderColor: 'var(--border-color)',
@@ -145,14 +145,14 @@ export default function Signup() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 rounded-md font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-2 sm:py-3 px-4 rounded-md font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
               style={{ backgroundColor: 'var(--primary)', color: 'var(--primary-text)' }}
             >
               {loading ? 'Creating account...' : 'Sign Up'}
             </button>
           </form>
 
-          <p className="mt-6 text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
+          <p className="mt-4 sm:mt-6 text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
             Already have an account?{' '}
             <Link to="/login" className="font-medium hover:underline" style={{ color: 'var(--primary)' }}>
               Sign in

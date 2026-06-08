@@ -28,13 +28,13 @@ export default function BudgetForm({ onSubmit, onCancel, editingBudget }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
+    <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mb-4 sm:mb-6" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <h2 className="text-lg sm:text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
         {editingBudget ? 'Edit Budget' : 'Add New Budget'}
       </h2>
       
       {error && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+        <div className="bg-red-100 border border-red-400 text-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded mb-4 text-sm">
           {error}
         </div>
       )}
@@ -47,7 +47,7 @@ export default function BudgetForm({ onSubmit, onCancel, editingBudget }) {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-primary)', borderColor: 'var(--border-color)' }}
             required
           >
@@ -68,7 +68,7 @@ export default function BudgetForm({ onSubmit, onCancel, editingBudget }) {
             type="number"
             value={monthlyBudget}
             onChange={(e) => setMonthlyBudget(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-primary)', borderColor: 'var(--border-color)' }}
             placeholder="Enter monthly budget"
             step="0.01"
@@ -80,7 +80,7 @@ export default function BudgetForm({ onSubmit, onCancel, editingBudget }) {
         <div className="flex gap-3">
           <button
             type="submit"
-            className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+            className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors text-sm sm:text-base"
           >
             {editingBudget ? 'Update Budget' : 'Add Budget'}
           </button>
@@ -88,7 +88,7 @@ export default function BudgetForm({ onSubmit, onCancel, editingBudget }) {
             <button
               type="button"
               onClick={onCancel}
-              className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
+              className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors text-sm sm:text-base"
               style={{ backgroundColor: 'var(--bg-secondary)', color: 'var(--text-primary)' }}
             >
               Cancel

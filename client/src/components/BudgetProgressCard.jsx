@@ -18,30 +18,30 @@ export default function BudgetProgressCard({ category, budget, spent, remaining,
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
+    <div className="bg-white rounded-lg shadow-md p-4 sm:p-6" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <div className="flex justify-between items-start mb-3 sm:mb-4">
+        <h3 className="text-base sm:text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
           {category}
         </h3>
-        <span className={`text-sm font-medium ${getTextColor()}`}>
+        <span className={`text-xs sm:text-sm font-medium ${getTextColor()}`}>
           {percentage.toFixed(1)}%
         </span>
       </div>
 
-      <div className="space-y-2 mb-4">
-        <div className="flex justify-between text-sm">
+      <div className="space-y-2 mb-3 sm:mb-4">
+        <div className="flex justify-between text-xs sm:text-sm">
           <span style={{ color: 'var(--text-secondary)' }}>Budget:</span>
           <span className="font-medium" style={{ color: 'var(--text-primary)' }}>
             ₹{budget.toFixed(2)}
           </span>
         </div>
-        <div className="flex justify-between text-sm">
+        <div className="flex justify-between text-xs sm:text-sm">
           <span style={{ color: 'var(--text-secondary)' }}>Spent:</span>
           <span className="font-medium" style={{ color: 'var(--text-primary)' }}>
             ₹{spent.toFixed(2)}
           </span>
         </div>
-        <div className="flex justify-between text-sm">
+        <div className="flex justify-between text-xs sm:text-sm">
           <span style={{ color: 'var(--text-secondary)' }}>Remaining:</span>
           <span className={`font-medium ${remaining >= 0 ? 'text-green-600' : 'text-red-600'}`}>
             ₹{remaining.toFixed(2)}
@@ -49,9 +49,9 @@ export default function BudgetProgressCard({ category, budget, spent, remaining,
         </div>
       </div>
 
-      <div className="w-full bg-gray-200 rounded-full h-3" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+      <div className="w-full bg-gray-200 rounded-full h-2 sm:h-3" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div
-          className={`h-3 rounded-full transition-all duration-300 ${getProgressColor()}`}
+          className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${getProgressColor()}`}
           style={{ width: `${Math.min(percentage, 100)}%` }}
         />
       </div>

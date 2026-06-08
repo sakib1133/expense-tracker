@@ -22,17 +22,20 @@ export default function ExpensePieChart({ expenses }) {
   }
 
   return (
-    <div className="shadow p-6 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px' }}>
-      <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Spending by Category</h2>
-      <ResponsiveContainer width="100%" height={300}>
+    <div className="shadow p-4 sm:p-6 border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border)', borderRadius: '14px' }}>
+      <h2 className="text-lg sm:text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Spending by Category</h2>
+      <ResponsiveContainer width="100%" height={250}>
         <PieChart>
           <Pie
             data={categoryData}
             cx="50%"
             cy="50%"
             labelLine={false}
-            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-            outerRadius={80}
+            label={{ 
+              formatter: ({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`,
+              fontSize: 10 
+            }}
+            outerRadius={60}
             fill="#8884d8"
             dataKey="value"
           >

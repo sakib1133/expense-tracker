@@ -145,16 +145,16 @@ export default function Budgets() {
     <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-main)' }}>
       <Navbar />
       
-      <div className="py-8 px-4">
+      <div className="py-4 sm:py-8 px-2 sm:px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <h1 className="text-4xl font-bold" style={{ color: 'var(--text-primary)' }}>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-8 gap-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: 'var(--text-primary)' }}>
               Budget Management
             </h1>
             {!showForm && (
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+                className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors text-sm sm:text-base"
               >
                 Add Budget
               </button>
@@ -180,8 +180,8 @@ export default function Budgets() {
           )}
 
           {budgets.length === 0 ? (
-            <div className="bg-white rounded-lg shadow-md p-12 text-center" style={{ backgroundColor: 'var(--bg-card)' }}>
-              <p className="text-lg mb-4" style={{ color: 'var(--text-secondary)' }}>
+            <div className="bg-white rounded-lg shadow-md p-8 sm:p-12 text-center" style={{ backgroundColor: 'var(--bg-card)' }}>
+              <p className="text-base sm:text-lg mb-4" style={{ color: 'var(--text-secondary)' }}>
                 No budgets set up yet
               </p>
               <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
@@ -189,19 +189,19 @@ export default function Budgets() {
               </p>
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 transition-colors"
+                className="bg-blue-500 text-white py-2 px-4 sm:px-6 rounded-md hover:bg-blue-600 transition-colors text-sm sm:text-base"
               >
                 Create Your First Budget
               </button>
             </div>
           ) : (
             <>
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 <BudgetVsSpendingChart data={chartData} />
               </div>
 
               {budgetsWithSpending.map(budget => (
-                <div key={budget.id} className="mb-6">
+                <div key={budget.id} className="mb-4 sm:mb-6">
                   <BudgetAlert percentage={budget.percentage} category={budget.category} />
                   <BudgetProgressCard
                     category={budget.category}
@@ -213,13 +213,13 @@ export default function Budgets() {
                   <div className="flex gap-2 mt-3">
                     <button
                       onClick={() => handleEdit(budget)}
-                      className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors text-sm"
+                      className="flex-1 bg-blue-500 text-white py-2 px-3 sm:px-4 rounded-md hover:bg-blue-600 transition-colors text-xs sm:text-sm"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => handleDeleteBudget(budget.id)}
-                      className="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition-colors text-sm"
+                      className="flex-1 bg-red-500 text-white py-2 px-3 sm:px-4 rounded-md hover:bg-red-600 transition-colors text-xs sm:text-sm"
                     >
                       Delete
                     </button>
