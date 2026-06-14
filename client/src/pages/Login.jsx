@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { usePWAInstall } from '../hooks/usePWAInstall';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -9,6 +10,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
+  const { isInstallable, isInstalled, promptInstall } = usePWAInstall();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -93,6 +95,25 @@ export default function Login() {
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
+
+          {isInstallable && !isInstalled && (
+            <button
+              onClick={promptInstall}
+              className="w-full mt-4 py-2 sm:py-3 px-4 rounded-md font-medium transition-colors text-sm sm:text-base flex items-center justify-center gap-2"
+              style={{
+                backgroundColor: 'transparent',
+                border: '2px solid var(--primary)',
+                color: 'var(--primary)'
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Install App
+            </button>
+          )}
 
           <p className="mt-4 sm:mt-6 text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
             Don't have an account?{' '}

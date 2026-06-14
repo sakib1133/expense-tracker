@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#4f46e5" rx="64"/>
+  <text x="256" y="256" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">Expense</text>
+  <text x="256" y="320" font-family="Arial, sans-serif" font-size="52" fill="white" text-anchor="middle" dominant-baseline="middle">Tracker</text>
+</svg>

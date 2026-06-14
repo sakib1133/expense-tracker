@@ -23,5 +23,17 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'sw.js') {
+            return 'sw.js';
+          }
+          return assetInfo.name;
+        }
+      }
+    }
   }
 })

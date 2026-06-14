@@ -26,7 +26,18 @@ app.use(express.json());
 // Serve static files from React build in production
 if (NODE_ENV === 'production') {
   const clientBuildPath = path.join(__dirname, '../client/dist');
-  app.use(express.static(clientBuildPath));
+  app.use(express.static(clientBuildPath, {
+    setHeaders: (res, path) => {
+      // Set Service-Worker-Allowed header for service worker
+      if (path.endsWith('.js')) {
+        res.setHeader('Service-Worker-Allowed', '/');
+      }
+      // Cache static assets
+      if (path.match(/\.(js|css|png|jpg|jpeg|svg|ico)$/)) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000');
+      }
+    }
+  }));
   console.log('Serving static files from:', clientBuildPath);
 }
 
