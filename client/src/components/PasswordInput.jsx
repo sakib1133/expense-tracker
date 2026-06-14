@@ -13,6 +13,7 @@ export default function PasswordInput({
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
+    console.log('Password toggle clicked, current state:', showPassword);
     setShowPassword(!showPassword);
   };
 
@@ -47,9 +48,11 @@ export default function PasswordInput({
         onClick={togglePasswordVisibility}
         onKeyDown={handleKeyDown}
         aria-label={showPassword ? 'Hide password' : 'Show password'}
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium px-2 py-1 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 transition-colors z-10 cursor-pointer"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium px-2 py-1 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 transition-colors z-10 cursor-pointer select-none"
         style={{
-          color: 'var(--text-secondary)'
+          color: 'var(--text-secondary)',
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-color)'
         }}
       >
         {showPassword ? 'Hide' : 'Show'}

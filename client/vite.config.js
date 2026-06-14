@@ -34,6 +34,8 @@ export default defineConfig({
           return assetInfo.name;
         }
       }
-    }
+    },
+    // Ensure service worker is copied to dist
+    copyPublicDir: true
   }
 })

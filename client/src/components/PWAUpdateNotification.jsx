@@ -7,16 +7,21 @@ export default function PWAUpdateNotification() {
   useEffect(() => {
     // Check for service worker updates
     if ('serviceWorker' in navigator) {
+      console.log('PWA: Service worker is supported');
       navigator.serviceWorker.ready.then((reg) => {
+        console.log('PWA: Service worker is ready:', reg);
         setRegistration(reg);
         
         // Listen for updates
         reg.addEventListener('updatefound', () => {
+          console.log('PWA: Update found');
           const newWorker = reg.installing;
           
           newWorker.addEventListener('statechange', () => {
+            console.log('PWA: Worker state changed to:', newWorker.state);
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
               // New service worker is available, waiting to be activated
+              console.log('PWA: New version available, showing update notification');
               setShowUpdate(true);
             }
           });
@@ -24,18 +29,24 @@ export default function PWAUpdateNotification() {
         
         // Also check for waiting service worker on page load
         if (reg.waiting) {
+          console.log('PWA: Waiting service worker found, showing update notification');
           setShowUpdate(true);
         }
+      }).catch((error) => {
+        console.error('PWA: Service worker ready failed:', error);
       });
       
       // Periodically check for updates (every 5 minutes)
       const interval = setInterval(() => {
         navigator.serviceWorker.ready.then((reg) => {
+          console.log('PWA: Checking for updates...');
           reg.update();
         });
       }, 5 * 60 * 1000);
       
       return () => clearInterval(interval);
+    } else {
+      console.log('PWA: Service worker is not supported');
     }
   }, []);
 
