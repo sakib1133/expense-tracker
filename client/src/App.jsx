@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Budgets from './pages/Budgets';
 import Analytics from './pages/Analytics';
 import ProtectedRoute from './components/ProtectedRoute';
+import PWAUpdateNotification from './components/PWAUpdateNotification';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
+      <PWAUpdateNotification />
     </AuthProvider>
   );
 }
