@@ -17,7 +17,7 @@ export default function PasswordInput({
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
       togglePasswordVisibility();
     }
@@ -47,7 +47,7 @@ export default function PasswordInput({
         onClick={togglePasswordVisibility}
         onKeyDown={handleKeyDown}
         aria-label={showPassword ? 'Hide password' : 'Show password'}
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium px-2 py-1 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 transition-colors"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium px-2 py-1 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 transition-colors z-10 cursor-pointer"
         style={{
           color: 'var(--text-secondary)'
         }}
