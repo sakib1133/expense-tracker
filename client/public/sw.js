@@ -84,6 +84,13 @@ self.addEventListener('sync', (event) => {
   }
 });
 
+// Handle skip waiting message for PWA updates
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
 async function syncExpenses() {
   // Handle syncing offline expenses when connection is restored
   console.log('Syncing expenses...');
