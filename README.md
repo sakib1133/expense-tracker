@@ -1,4 +1,4 @@
-# Mini Expense Tracker
+# Expense Tracker
 
 A full-stack expense tracking application with React frontend and Node.js/Express backend.
 
