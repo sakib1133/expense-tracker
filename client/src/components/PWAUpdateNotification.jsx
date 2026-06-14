@@ -21,7 +21,21 @@ export default function PWAUpdateNotification() {
             }
           });
         });
+        
+        // Also check for waiting service worker on page load
+        if (reg.waiting) {
+          setShowUpdate(true);
+        }
       });
+      
+      // Periodically check for updates (every 5 minutes)
+      const interval = setInterval(() => {
+        navigator.serviceWorker.ready.then((reg) => {
+          reg.update();
+        });
+      }, 5 * 60 * 1000);
+      
+      return () => clearInterval(interval);
     }
   }, []);
 
