@@ -33,7 +33,6 @@ body {
 /* Prevent horizontal overflow on all elements */
 * {
   max-width: 100%;
-  overflow-x: auto;
 }
 
 /* Ensure no horizontal scroll on body */
